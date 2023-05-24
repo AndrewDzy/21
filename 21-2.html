@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Square of a Number</title>
+</head>
+<body>
+<input type="number" id="number">
+<button onclick="calculateSquare()">Calculate Square</button>
+<p id="result"></p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+function calculateSquare() {
+  var number = $("#number").val();
+  $.ajax({
+    url: "/square",
+    type: "POST",
+    data: { number: number },
+    success: function(result) {
+      $("#result").text(result);
+    }
+  });
+}
+</script>
+</body>
+</html>
